@@ -35,30 +35,24 @@ public class App
 	}
     public static void main( String[] args )
     {
-    	
+    	App app = new App();
     	filmService =(FilmService) context.getBean("filmServiceImpl");
     	context.start();
-    
-        input();
+    	app.input();
        context.stop();
        System.exit(0);
     }
     
-    public static  void input(){
+    
+    
+    public   void input(){
         while(!wantEnd){
-        	Film film = new Film();
-        	String title = "";
+        	Film film = new Film();       
             String description  = "";
             Byte languageId =0;
-            System.out.println("请输入电影名称【title】");
-            title = scanner.nextLine();
-            System.out.println("请输入电影名称【description】");
-            description = scanner.nextLine();
-            System.out.println("请输入语言ID【languageId】");
-             getLanguageId(film);
-         
-            film.setTitle(title);
-            film.setDescription(description);
+            getTitle(film);           
+            getDescription(film);
+             getLanguageId(film);                   
             filmService.add(film);
             isEnd();
         	/*System.out.println("输入1继续插入数据，输入2结束程序");
@@ -79,7 +73,35 @@ public class App
     	
     }
     
-    public static void isEnd(){
+    public    void getTitle(Film film){
+    	System.out.println("请输入电影名称【title】");
+    	String title = "";
+    	try{
+    	    title = scanner.nextLine();
+			if(title.trim().equals("")){			
+				getTitle(film);
+			}
+			film.setTitle(title);
+		}catch(Exception e){
+			getTitle(film);
+		}
+	}
+    
+    public    void getDescription(Film film){
+    	   System.out.println("请输入电影名称【description】");
+        String description  = "";
+    	try{
+    		description = scanner.nextLine();
+			if(description.trim().equals("")){			
+				getDescription(film);
+			}
+			film.setDescription(description);
+		}catch(Exception e){
+			getDescription(film);
+		}
+	}
+    
+    public  void isEnd(){
     	System.out.println("输入1继续插入数据，输入2结束程序");
     	int num = -1;
     	try{
@@ -95,7 +117,7 @@ public class App
     	}
     	
     }
-    public   static void getLanguageId(Film film){
+    public    void getLanguageId(Film film){
     	System.out.println("请输入位于(1,2,3,4,5)当中的数字");
     	Byte languageId=null;
     	try{
