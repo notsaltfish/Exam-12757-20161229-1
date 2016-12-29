@@ -92,7 +92,7 @@ public class App
 	}
     
     public    void getDescription(Film film){
-    	   System.out.println("请输入电影名称【description】");
+    	   System.out.println("请输入电影描述【description】");
         String description  = "";
         scanner = new Scanner(System.in);
     	try{
