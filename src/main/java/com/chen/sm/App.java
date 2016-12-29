@@ -29,6 +29,7 @@ public class App
 		sets.add(new Byte((byte)3));
 		sets.add(new Byte((byte)4));
 		sets.add(new Byte((byte)5));
+		sets.add(new Byte((byte)6));
 		
 		ints.add(1);
 		ints.add(2);
@@ -118,7 +119,7 @@ public class App
     	
     }
     public    void getLanguageId(Film film){
-    	System.out.println("请输入位于(1,2,3,4,5)当中的数字");
+    	System.out.println("请输入位于(1,2,3,4,5,6)当中的数字");
     	Byte languageId=null;
     	try{
     	
