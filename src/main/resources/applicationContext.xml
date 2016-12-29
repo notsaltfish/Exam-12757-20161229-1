@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
 	<!-- 加载配置文件 -->
-	<context:property-placeholder location="classpath:db.properties" />
+	<context:property-placeholder location="classpath:dbconfig.properties" />
 	<context:component-scan base-package="com.chen.sm"></context:component-scan>
  <aop:aspectj-autoproxy />
 	<!-- 数据源，使用dbcp -->
@@ -46,18 +46,7 @@
 		<!-- 数据源 -->
 		<property name="typeAliasesPackage" value="com.chen.sm.po" />  
 		<property name="dataSource" ref="dataSource" />
-		<property name="plugins">
-		    <array>
-		      <bean class="com.github.pagehelper.PageInterceptor">
-		        <property name="properties">
-		          <!--使用下面的方式配置参数，一行配置一个 -->
-		          <value>
-		            params=value1
-		          </value>
-		        </property>
-		      </bean>
-		    </array>
-      </property>
+		
 	</bean>
 	
 	<!-- 原始dao接口 -->
